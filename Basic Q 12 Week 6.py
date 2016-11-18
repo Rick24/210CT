@@ -34,18 +34,18 @@ def postorder(tree):
     print(tree.value)
   
 def in_order(tree):
-	list = []
-	while not None:
-		if tree is not None: #Reach left most Node
-			list.append(tree) #Place pointer 
-			tree = tree.left
-		else: #Go to Node at top of stack, if stack is empty, DONE
-			if (len(list) > 0): #Reach right mode Node
-				tree = list.pop() #Add values to the end of tree
-				print(tree.value)
-				tree = tree.right
-			else:
-				break #Escape while loop when tree is done
+	stack = [] #Create empty stack
+	while not None: #To represent if traversal is done
+		if tree is not None: #If tree has value
+			stack.append(tree) #Add to the stack
+			tree = tree.left #Next node is left child
+		else: 
+			if (len(stack) > 0): #If stack has a value
+				tree = stack.pop() #Go to last value
+				print(tree.value) #Ouptut
+				tree = tree.right #Next node is right child
+			else: #Break out when traversal is complete
+				break 
   	
 #def in_order(tree):
 #    if(tree.left != None):
@@ -53,7 +53,14 @@ def in_order(tree):
 #    print(tree.value)
 #    if(tree.right != None):
 #        in_order(tree.right)
-        
+
+def tree_sort(lst):
+    t = tree_insert(None, lst[0])
+    for i in lst:
+        tree_insert(t, i)
+    in_order(t)
+
+lst = [2, 4, 6, 8, 9, 1, 3, 0, 5, 7]       
 t=tree_insert(None, 6);
 tree_insert(t, 10)
 tree_insert(t, 5)
@@ -62,4 +69,5 @@ tree_insert(t, 3)
 tree_insert(t, 4)
 tree_insert(t, 11)
 in_order(t)
+#tree_sort(lst)
 #postorder(t)
