@@ -41,7 +41,7 @@ class DoubleList(object):
 			self.head = self.tail = x
 			x.prev = x.next = None
 		elif self.tail == None:
-			self.tail = xrange
+			self.tail = x.range
 	
 
 N1 = Node(23)
