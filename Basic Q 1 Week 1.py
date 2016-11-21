@@ -11,4 +11,4 @@ for i in range(0, 7):  #Loop from 0 to array length
 	if y == i: #If it is the same create it again
 		continue 
 	array[i], array[y] = array[y], array[i] #Replace temp list with actual array
-print(array)
+print(array
